@@ -1,7 +1,7 @@
 {
-  "name": "async-mqtt",
-  "version": "2.6.3",
-  "description": "Promise wrapper over MQTT.js",
+  "name": "react-native-async-mqtt",
+  "version": "4.3.9",
+  "description": "Promise wrapper over React Native compatible MQTT.js",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -18,14 +18,9 @@
     "publish",
     "subscribe"
   ],
-  "author": "rangermauve",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mqttjs/async-mqtt/issues"
-  },
-  "homepage": "https://github.com/mqttjs/async-mqtt#readme",
   "dependencies": {
-    "mqtt": "^4.3.7"
+    "@taoqf/react-native-mqtt": "^3.0.4"
   },
   "devDependencies": {
     "@types/node": "^14.0.5",

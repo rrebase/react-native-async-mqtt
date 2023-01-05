@@ -5,10 +5,10 @@ import {
   IClientSubscribeOptions,
   ISubscriptionGrant,
   ISubscriptionMap,
-} from 'mqtt';
+} from "mqtt";
 
-export * from 'mqtt/types/lib/client-options';
-export * from 'mqtt/types/lib/store';
+export * from "mqtt/types/lib/client-options";
+export * from "mqtt/types/lib/store";
 
 export {
   // mqtt/types/lib/client
@@ -39,32 +39,67 @@ export {
   IPingreqPacket,
   IPingrespPacket,
   IDisconnectPacket,
-  Packet
-} from 'mqtt'
+  Packet,
+} from "mqtt";
 
 export interface IMqttClient extends MqttClient {}
 
 export declare class AsyncMqttClient extends MqttClient {
-  constructor (client: IMqttClient);
+  constructor(client: IMqttClient);
 
-  public subscribe (topic: string | string[], opts: IClientSubscribeOptions): Promise<ISubscriptionGrant[]>
-  public subscribe (topic: string | string[] | ISubscriptionMap): Promise<ISubscriptionGrant[]>
-  /* original */ public subscribe (topic: string | string[], opts: IClientSubscribeOptions, callback: never): this
-  /* original */ public subscribe (topic: string | string[] | ISubscriptionMap, callback: never): this
+  public subscribe(
+    topic: string | string[],
+    opts: IClientSubscribeOptions
+  ): Promise<ISubscriptionGrant[]>;
+  public subscribe(
+    topic: string | string[] | ISubscriptionMap
+  ): Promise<ISubscriptionGrant[]>;
+  /* original */ public subscribe(
+    topic: string | string[],
+    opts: IClientSubscribeOptions,
+    callback: never
+  ): this;
+  /* original */ public subscribe(
+    topic: string | string[] | ISubscriptionMap,
+    callback: never
+  ): this;
 
-  public unsubscribe (topic: string | string[]): Promise<void>
-  /* original */ public unsubscribe (topic: string | string[], callback: never): this;
+  public unsubscribe(topic: string | string[]): Promise<void>;
+  /* original */ public unsubscribe(
+    topic: string | string[],
+    callback: never
+  ): this;
 
-  public publish (topic: string, message: string | Buffer, opts: IClientPublishOptions): Promise<void>
-  public publish (topic: string, message: string | Buffer): Promise<void>
-  /* original */ public publish (topic: string, message: string | Buffer, opts: IClientPublishOptions, callback: never): this
-  /* original */ public publish (topic: string, message: string | Buffer, callback: never): this
+  public publish(
+    topic: string,
+    message: string | Buffer,
+    opts: IClientPublishOptions
+  ): Promise<void>;
+  public publish(topic: string, message: string | Buffer): Promise<void>;
+  /* original */ public publish(
+    topic: string,
+    message: string | Buffer,
+    opts: IClientPublishOptions,
+    callback: never
+  ): this;
+  /* original */ public publish(
+    topic: string,
+    message: string | Buffer,
+    callback: never
+  ): this;
 
-  public end (force?: boolean): Promise<void>
-  /* original */ public end (force: boolean, callback: never): this;
+  public end(force?: boolean): Promise<void>;
+  /* original */ public end(force: boolean, callback: never): this;
 }
 
-export declare function connect (brokerUrl?: string | any, opts?: IClientOptions): AsyncMqttClient
-export declare function connectAsync (brokerUrl: string | any, opts?: IClientOptions, allowRetries?: boolean): Promise<AsyncMqttClient>
+export declare function connect(
+  brokerUrl?: string | any,
+  opts?: IClientOptions
+): AsyncMqttClient;
+export declare function connectAsync(
+  brokerUrl: string | any,
+  opts?: IClientOptions,
+  allowRetries?: boolean
+): Promise<AsyncMqttClient>;
 
-export { AsyncMqttClient as AsyncClient }
+export { AsyncMqttClient as AsyncClient, IClientOptions };
